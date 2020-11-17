@@ -7,6 +7,16 @@ Alternativer Titel: *Being a Cunt about Counts*
 
 ```{r, eval = FALSE}
 count_them <- function(supposedly_a_count) {
+  
+  # assert numerical input of one element
+  assert_number(supposedly_a_count)
+  assert_true(supposedly_a_count != Inf | supposedly_a_count != NA)
+  
+  # assert positive input
+  assert_true(supposedly_a_count > 0)
+  
+  
+  
   if (!checkmate::test_count(supposedly_a_count)) {
     warning(
       "rounding ", supposedly_a_count,
@@ -24,4 +34,10 @@ eine sinnvolle *Anzahl*  von irgendwas repräsentiert.
 
 a) Identifizieren Sie möglichst viele der hier getroffenen *impliziten* Annahmen über das Objekt `supposedly_a_count`. (Am besten: *bevor* Sie sich die entsprechenden Tests im mitgelieferten Testfile anschauen.)
 
-b) Modifizieren Sie den Code so dass alle diese impliziten Annahmen mittels *expliziten* `assertions` überprüft werden, so dass immer entweder eine informative Fehlermeldung oder ein korrektes/vernünftiges Ergebnis (evtl. mit entsprechenden Warnmeldungen, s.o.) zurückgegeben wird.
+*Annahmen*
+Input ist numerisch
+Input ist nicht negativ
+Input hat nur ein Element
+Input ist nicht Inf oder NA
+
+b) Modifizieren Sie den Code so, dass alle diese impliziten Annahmen mittels *expliziten* `assertions` überprüft werden, so dass immer entweder eine informative Fehlermeldung oder ein korrektes/vernünftiges Ergebnis (evtl. mit entsprechenden Warnmeldungen, s.o.) zurückgegeben wird.
